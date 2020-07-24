@@ -2,8 +2,7 @@
 
 ## Building the API
 
-Important: you need node 12 for building
-
+Important: you need node 12 for building (you may require to use nvm use 12)
 
 ## Adding .env file in the project root
 

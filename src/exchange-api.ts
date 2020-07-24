@@ -13,6 +13,7 @@ server.get(
   async (req: any, reply: any): Promise<any> => {
     try {
       const { from, to, amount } = req.params;
+      console.debug(`Starting exchange with params: ${JSON.stringify(req.params)}`);
       // TODO Fix this once we add authentication
       const email = req.user?.email ? req.user?.email : process.env.SUPORT_EMAIL;
       const msg: IMessageToSend = { email, from, to, amount };
@@ -26,7 +27,7 @@ server.get(
   }
 );
 
-server.listen(PORT, (err, address) => {
+server.listen(PORT, `0.0.0.0`, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);

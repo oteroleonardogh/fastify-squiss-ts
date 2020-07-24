@@ -25,6 +25,7 @@ wait_for() {
     result=$?
     if [ $result -eq 0 ] ; then
       if [ $# -gt 0 ] ; then
+        sleep 15
         exec "$@"
       fi
       exit 0
@@ -74,5 +75,5 @@ if [ "$WAIT_HOST" = "" -o "$WAIT_PORT" = "" ]; then
   echoerr "Error: you need to provide a host and port to test."
   usage 2
 fi
-
+sleep 20
 wait_for "$@"
