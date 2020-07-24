@@ -1,0 +1,13 @@
+FROM node:12-alpine
+
+COPY package.json /usr/local/bin/service/
+COPY yarn.lock /usr/local/bin/service/
+WORKDIR /usr/local/bin/service/
+RUN DOCKER_ENV=1 yarn install --frozen-lockfile --production
+COPY dist /usr/local/bin/service/dist/
+COPY wait.sh /usr/local/bin/service/dist/
+RUN chmod +x /usr/local/bin/service/dist/wait.sh
+EXPOSE 3000
+WORKDIR /usr/local/bin/service/dist
+#CMD [ "node", "exchange-api.js" ]
+CMD [ "./wait.sh" , "sqs-exchange:9325", "--", "node", "exchange-api.js" ]

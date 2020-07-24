@@ -1,0 +1,52 @@
+version: '3'
+services:
+  exchange-api:
+    container_name: exchange-api
+    env_file:
+      - .env
+    networks:
+      - exchange-net
+    depends_on:
+      - sqs-exchange
+    restart: on-failure
+    build: 
+      context: .
+      dockerfile: Dockerfile-exchange-api  
+    ports:
+      # Expose ports [HOST:CONTAINER]
+      - "3000:3000"
+    links:
+      - sqs-exchange
+
+  exchange-processor:
+    container_name: exchange-processor
+    env_file:
+      - .env
+    networks:
+      - exchange-net
+    depends_on:
+      - sqs-exchange
+    restart: on-failure
+    build: 
+      context: .
+      dockerfile: Dockerfile-exchange-processor  
+    ports:
+      # Expose ports [HOST:CONTAINER]
+      - "3001:3001"
+      - "80:80"
+      - "443:443"      
+    links:
+      - sqs-exchange      
+
+  sqs-exchange:
+    container_name: sqs-exchange
+    image: roribio16/alpine-sqs
+    networks:
+      - exchange-net
+    ports:
+      # Expose ports [HOST:CONTAINER]
+      - "9324:9324" 
+      - "9325:9325"
+
+networks:
+  exchange-net:
