@@ -2,7 +2,42 @@
 
 ## Building the API
 
-```Bash
+Important: you need node 12 for building
+
+
+## Adding .env file in the project root
+
+Once you clone project repo you need first to add .env file with the following entries
+
+```bash
+PORT= 3000
+SUPORT_EMAIL= support@pruvo.com
+
+# SQS EXCHANGE CONFIG
+SQS_REGION=dummy
+SQS_DELAY=0
+SQS_EXCHANGE_ACCESS_KEY_ID=dummy
+SQS_EXCHANGE_SECRET_ACCESS_KEY_ID=dummy
+SQS_EXCHANGE_ENDPOINT=http://sqs-exchange:9324
+SQS_EXCHANGE_QUEUE_URL=http://sqs-exchange:9324/queue/default
+SQS_QUEUE_NAME=sqs-exchange
+SQS_MAX_IN_FLIGHT=15
+
+# OPENEXCHANGERATES CONFIG
+
+OPENEXCHANGERATES_API_KEY=4a96af2d932d4c7ea145259ed0c0c511
+OPENEXCHANGERATES_API_BASE_URL=https://openexchangerates.org/api
+```
+
+## Installing dependencies
+
+```bash
+yarn install
+```
+
+## Transpiling Typescript into javascript and creating dist folder
+
+```bash
 yarn build
 ```
 
