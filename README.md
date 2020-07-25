@@ -93,6 +93,6 @@ yarn test
 
 ## Screenshots
 
-[[https://raw.githubusercontent.com/oteroleonardo/fastify-squiss-ts/master/docs/screenshot2.png |alt=k6.io]]
+<img src="./docs/screenshot2.png" alt="k6.io">
 
-[[https://raw.githubusercontent.com/oteroleonardo/fastify-squiss-ts/master/docs/screenshot1.png |alt=Stquiss-ts web console]]
+<img src="./docs/screenshot1.png" alt="Squiss-ts web console">
