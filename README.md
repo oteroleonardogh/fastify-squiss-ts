@@ -78,4 +78,21 @@ You should receive something like:
 
 ## Visualizing Exchange Queue Messages
 
-To visualise messages sent to queue please navigate in your browser to http://localhost:9325/
+To visualise messages sent to queue please navigate in your browser to: http://localhost:9325
+
+## Testing Exchange API performance
+
+A performance test script based in k6.io is also provided. Here is how you can run the test:
+
+- Check first that 3 exchange containers are up and running.
+- Then you can run test using
+
+```bash
+yarn test
+```
+
+## Screenshots
+
+![K6.io](docs/Screen Shot 2020-07-24 at 20.15.01.png)
+
+![Stquiss-ts web console](docs/Screen Shot 2020-07-24 at 20.09.21.png)
