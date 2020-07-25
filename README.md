@@ -10,7 +10,7 @@ Once you clone project repo you need first to add .env file with the following e
 
 ```bash
 PORT= 3000
-SUPORT_EMAIL= support@pruvo.com
+SUPORT_EMAIL= support@yourcompany.com
 
 # SQS EXCHANGE CONFIG
 SQS_REGION=dummy
